@@ -1,8 +1,8 @@
 # Implementation of quick sort algorithm
 
-def swap(a: list, p: int, l: int, r: int) -> int:
+def partition(a: list, p: int, l: int, r: int) -> int:
 
-    # Swap pivot at the end of the list
+    # Move  pivot at the end of the list
     a[p], a[r] = a[r], a[p]
 
     # Set store index to left index
@@ -15,42 +15,48 @@ def swap(a: list, p: int, l: int, r: int) -> int:
             s += 1
         l += 1
 
-    # Swap pivot in its position
+    # Move pivot back to its position
     a[s], a[r] = a[r], a[s]
 
     return s
 
 
-def quick_sort(a: list, l: int, r: int):
-    # Calculate len
-    L = r - l + 1
+def quick_sort_helper(a: list, l: int, r: int):
 
-    # Define base case
-    if L <=1:
+    # Base case
+    if l >= r:
         return
 
-    # Define recursive case
+    # Recursive case
     p = l + (r - l) // 2
 
-    p = swap(a, p, l, r)
+    p = partition(a, p, l, r)
 
-    quick_sort(a, l, p-1)
-    quick_sort(a, p+1, r)
+    quick_sort_helper(a, l, p-1)
+    quick_sort_helper(a, p+1, r)
 
     return
 
 
+def quick_sort(a: list):
+
+    l = 0
+    r = len(a) -1
+
+    quick_sort_helper(a, l, r)
+
+
 a = [8, 3, 1, 7, 0, 10, 2]
 print(f"Before: {a}")
-quick_sort(a, 0, len(a)-1)
+quick_sort(a)
 print(f"After: {a}")
 
 a = [8, 3, 1]
 print(f"Before: {a}")
-quick_sort(a, 0, len(a)-1)
+quick_sort(a)
 print(f"After: {a}")
 
 a = [8, 3]
 print(f"Before: {a}")
-quick_sort(a, 0, len(a)-1)
+quick_sort(a)
 print(f"After: {a}")

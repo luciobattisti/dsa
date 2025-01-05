@@ -14,7 +14,7 @@ Merge sort is a divide-and-conquer algorithm used for sorting that splits a list
 - **Efficiency**: It performs well on large datasets and is preferred when stability and predictable performance are important.
 
 ### Example Walkthrough
-Consider sorting the list \([6, 3, 8, 5, 2, 7, 4, 1]\):
+Consider sorting the list ([6, 3, 8, 5, 2, 7, 4, 1]):
 
 1. **Divide**: 
    - Split into: \([6, 3, 8, 5]\) and \([2, 7, 4, 1]\)
@@ -30,4 +30,4 @@ Consider sorting the list \([6, 3, 8, 5, 2, 7, 4, 1]\):
    - Merge \([2, 7]\) and \([1, 4]\) into \([1, 2, 4, 7]\)
    - Finally, merge \([3, 5, 6, 8]\) and \([1, 2, 4, 7]\) into \([1, 2, 3, 4, 5, 6, 7, 8]\)
 
-The list is now sorted! Merge sort’s efficiency and consistent \(O(n \log n)\) performance make it a powerful choice for many sorting tasks.
+The list is now sorted! Merge sort’s efficiency and consistent *O(n log n)* performance make it a powerful choice for many sorting tasks.
